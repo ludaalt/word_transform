@@ -1,22 +1,22 @@
 import { FormControl, InputLabel, Select, MenuItem  } from "@material-ui/core";
 
-const Selector = () => {
+const Selector = ({ caseName, handleChangeSelect }: any) => {
     return (
         <FormControl fullWidth>
             <InputLabel id="demo-simple-select-label">Выберите падеж</InputLabel>
             <Select
                 labelId="demo-simple-select-label"
                 id="demo-simple-select"
-                // value={age}
-                label="Age"
-                // onChange={handleChange}
+                value={caseName}
+                label="Введите слово"
+                onChange={handleChangeSelect}
             >
-                <MenuItem value={10}>Именительный</MenuItem>
-                <MenuItem value={20}>Родительный</MenuItem>
-                <MenuItem value={30}>Дательный</MenuItem>
-                <MenuItem value={40}>Винительный</MenuItem>
-                <MenuItem value={50}>Творительный</MenuItem>
-                <MenuItem value={60}>Предложный</MenuItem>
+                <MenuItem value={'Именительный'}>Именительный</MenuItem>
+                <MenuItem value={'Родительный'}>Родительный</MenuItem>
+                <MenuItem value={'Дательный'}>Дательный</MenuItem>
+                <MenuItem value={'Винительный'}>Винительный</MenuItem>
+                <MenuItem value={'Творительный'}>Творительный</MenuItem>
+                <MenuItem value={'Предложный'}>Предложный</MenuItem>
             </Select>
         </FormControl>
     )
