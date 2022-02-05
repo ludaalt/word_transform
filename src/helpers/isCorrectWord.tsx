@@ -1,4 +1,4 @@
-const isCorrectWord = (string: string): any => {
+const isCorrectWord = (string: string): boolean => {
     fetch(`https://speller.yandex.net/services/spellservice.json/checkText?text=${string}`)
       .then((response) => response.json())
       .then((json) => {

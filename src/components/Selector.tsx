@@ -1,6 +1,11 @@
 import { FormControl, InputLabel, Select, MenuItem  } from "@material-ui/core";
 
-const Selector = ({ caseName, handleChangeSelect }: any) => {
+interface ISelector {
+    caseName: string | unknown;
+    handleChangeSelect: (event: React.ChangeEvent<{ name?: string | undefined; value: string | unknown ; }>) => void;
+}
+
+const Selector = ({ caseName, handleChangeSelect }: ISelector) => {
     return (
         <FormControl fullWidth>
             <InputLabel id="demo-simple-select-label">Выберите падеж</InputLabel>

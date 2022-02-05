@@ -7,17 +7,17 @@ import transformWord from './helpers/transformWord';
 import isRussianWord from './helpers/isRussianWord';
 import isCorrectWord from './helpers/isCorrectWord';
 
-function App() {
-  const [basicWord, setBasicWord] = useState('');
-  const [caseName, setCaseName] = useState('');
+const App = () => {
+  const [basicWord, setBasicWord] = useState<string>('');
+  const [caseName, setCaseName] = useState<string>('');
 
-  const [result, setResult] = useState('')
+  const [result, setResult] = useState<string>('')
 
-  const handleChangeSelect = (e: any) => {
-    setCaseName(e.target.value)
+  const handleChangeSelect = (event: React.ChangeEvent<{ name?: string | undefined; value: string | unknown ; }>): void => {
+    setCaseName(typeof event.target.value === 'string' ? event.target.value : '')
   }
 
-  const handleTransform = () => {
+  const handleTransform = (): void => {
     if(!caseName) {
       setResult('Выберите нужный падеж');
       return;
@@ -40,7 +40,6 @@ function App() {
       setResult('Введите русское слово')
     }
   }
-
 
   return (
     <div className="App">
