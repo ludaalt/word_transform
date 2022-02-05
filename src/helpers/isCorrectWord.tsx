@@ -1,5 +1,5 @@
 const isCorrectWord = (string: string): boolean => {
-    fetch(`https://speller.yandex.net/services/spellservice.json/checkText?text=${string}`)
+    fetch(`https://speller.yandex.net/services/spellservice.json/checkText?text=${string}&lang=ru`)
       .then((response) => response.json())
       .then((json) => {
         if(json.length !== 0) {

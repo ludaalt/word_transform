@@ -1,4 +1,4 @@
-const transformWord = (string: string | '', caseName: string): string => {
+const transformWord = (string: string | '', caseName: string): any => {
     let casesNames = ['Родительный', 'Дательный', 'Винительный', 'Творительный', 'Предложный'];
 
     let result = '';
@@ -8,7 +8,7 @@ const transformWord = (string: string | '', caseName: string): string => {
 
     switch(lastChar) {
         case 'а': 
-            ends.push('ы', 'е', 'у', 'ой', 'е');
+            ends.push('ы', 'е', 'у', 'ой', 'е'); // ж.род
             break;
 
         case 'е': 
@@ -27,11 +27,11 @@ const transformWord = (string: string | '', caseName: string): string => {
             return 'Введите русское существительное в единственном числе'
 
         case 'й': 
-            ends.push('я', 'ю', 'я', 'ум', 'е');
+            ends.push('я', 'ю', 'я', 'ем', 'е');
             break;
 
         case 'о': 
-            ends.push('а', 'у', 'а', 'у', 'у');
+            ends.push('а', 'у', 'о', 'ом', 'е');
             break;
 
         case 'б':
@@ -64,7 +64,11 @@ const transformWord = (string: string | '', caseName: string): string => {
             return result;
 
         case 'ь': 
+        if(string[string.length - 2] === 'р' || string[string.length - 2] === 'л') {
+            ends.push('я', 'ю', 'ь', 'ем', 'е');
+        } else {
             ends.push('и', 'и', 'ь', 'ью', 'и');
+        }
             break;
 
 
