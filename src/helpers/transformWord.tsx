@@ -1,10 +1,10 @@
 const transformWord = (string: string | '', caseName: string): string => {
     let casesNames = ['Родительный', 'Дательный', 'Винительный', 'Творительный', 'Предложный'];
+
     let result = '';
     let ends = []
 
     let lastChar = string[string.length - 1]
-    console.log(lastChar)
 
     switch(lastChar) {
         case 'а': 
@@ -41,7 +41,7 @@ const transformWord = (string: string | '', caseName: string): string => {
         case 'т': 
         case 'ф': 
             ends.push('а', 'у', 'а', 'ом', 'е');
-            break;
+            return string + ends[casesNames.indexOf(caseName)];
 
         case 'ц':
         case 'ч':
